@@ -1,4 +1,8 @@
+import streams.CreatingStreams;
+import streams.StreamsDemo;
+
 import java.util.*;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +15,7 @@ public class Main {
 //        List<Integer> input = Arrays.asList(1,1,2,1,3,6,4,5,6,6);
 //        List<List<Integer>> result = ElementCount.getElementCount(input);
 //        System.out.println(result);
-        List<String> input = Arrays.asList("flower", "flow", "flavin","abccba");
+//        List<String> input = Arrays.asList("flower", "flow", "flavin", "abccba");
 //        String prefix = LongestSequencePrefix.findLongestSequencePrefix(input);
 //        System.out.println("Prefix: " + prefix);
 //        ComparableImplementation ci = new ComparableImplementation(25, "simon");
@@ -23,8 +27,9 @@ public class Main {
 //        System.out.println(isequal + " hash " + findHash);
 //        System.out.println("CompareTo: " + ci2.compareTo(ci));
 
-        System.out.println(SixCharPalindrome.findSixCharPalindrome(input));
-
+//        System.out.println(SixCharPalindrome.findSixCharPalindrome(input));
+//        CreatingStreams.show();
+        StreamsDemo.show();
     }
 
     private static int getUniqueElement(String input) {
@@ -35,8 +40,8 @@ public class Main {
             map.put(inputArray[i], map.getOrDefault(inputArray[i], 0) + 1);
         }
 
-        for(int i = 0; i < inputArray.length; i++){
-            if(map.get(inputArray[i]) == 1){
+        for (int i = 0; i < inputArray.length; i++) {
+            if (map.get(inputArray[i]) == 1) {
                 return i;
             }
         }
@@ -44,5 +49,5 @@ public class Main {
         return -1;
     }
 
-    }
+}
 
