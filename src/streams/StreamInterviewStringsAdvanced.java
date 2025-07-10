@@ -1,9 +1,6 @@
 package streams;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -61,6 +58,17 @@ public class StreamInterviewStringsAdvanced {
         IntStream.range(0, cities.size())
                 .mapToObj(i -> cities.get(cities.size() - 1 - i))
                 .forEach(System.out::println);
+        System.out.println("--------------------------------");
+        String input = "aabcdbdecest";
+        Map<Character, Long> freqMap = input.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, LinkedHashMap::new, Collectors.counting()));
+
+        int index = IntStream.range(0, input.length())
+                .filter(i -> freqMap.get(input.charAt(i)) == 1)
+                .findFirst()
+                .orElse(-1);
+        System.out.println(index);
 
     }
 }

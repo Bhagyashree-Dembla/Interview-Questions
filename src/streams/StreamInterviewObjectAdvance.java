@@ -2,6 +2,7 @@ package streams;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * 14.Group all employees by department
@@ -27,27 +28,27 @@ public class StreamInterviewObjectAdvance {
         //14
         employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment))
-                .forEach((k,v) -> System.out.println("Department: " + k + "\nEmployees: " + v));
+                .forEach((k, v) -> System.out.println("Department: " + k + "\nEmployees: " + v));
         System.out.println("----------------------------------------");
         //15
         employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting()))
-                .forEach((k,v) -> System.out.println("Department: " + k + "\nCount: " + v));
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+                .forEach((k, v) -> System.out.println("Department: " + k + "\nCount: " + v));
         System.out.println("-----------------------------------");
         //16
         employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.summingDouble(Employee::getSalary)))
-                .forEach((k,v) -> System.out.println("Department: "+ k + "\nTotal Salary: " + v));
+                .forEach((k, v) -> System.out.println("Department: " + k + "\nTotal Salary: " + v));
         System.out.println("-------------------------------------------");
         //17
         employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)))
-                .forEach((k,v) -> System.out.println("Department: "+ k + "\nAverage Salary: " + v));
+                .forEach((k, v) -> System.out.println("Department: " + k + "\nAverage Salary: " + v));
         System.out.println("-------------------------------------------");
         //18
         boolean isMatch = employees.stream()
                 .allMatch(employee -> employee.getDepartment().equals("IT"));
-        if(isMatch) {
+        if (isMatch) {
             System.out.println("All employess are in IT department.");
         } else {
             System.out.println("All employess are not in IT department.");
@@ -57,7 +58,7 @@ public class StreamInterviewObjectAdvance {
         //19
         employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.groupingBy(Employee::getCity)))
-                .forEach((dept,cityMap) -> {
+                .forEach((dept, cityMap) -> {
                     System.out.println("Department: " + dept);
                     cityMap.forEach((city, emp) -> {
                         System.out.println("City: " + city);
@@ -74,7 +75,6 @@ public class StreamInterviewObjectAdvance {
                 .stream()
                 .max(Comparator.comparingDouble(deptAvgSalMap::get)).get();
         System.out.println(department);
-
-
+        System.out.println("---------------------------------");
     }
 }
